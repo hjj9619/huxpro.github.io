@@ -1,4 +1,4 @@
-[Hux Blog](https://huangxuan.me)
+[Githe Blog](https://githe.xyz)
 ================================
 
 > I never expected this to become popular.
