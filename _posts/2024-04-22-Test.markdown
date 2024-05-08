@@ -1,74 +1,127 @@
 ---
 layout:     post
 title:      "Hello 2024"
-subtitle:   " \"Hello World, Hello Blog\""
-date:       2024-04-22 00:00:00
-author:     "Hux"
+subtitle:   " \"Hello World, Hello GitheBlog\""
+date:       2024-05-08 00:00:00
+author:     "Githe"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
-tags:
-    - Meta
+tags: 
+    - C++
+    - 面向对象
+    - Arduino
 ---
 
-> “Yeah It's on. ”
-
-
-测试githe.xyz Blog。
-
-[跳过废话，直接看技术实现 ](#build) 
-
-2015 年，Hux 总算有个地方可以好好写点东西了。
-
-
-作为一个程序员， Blog 这种轮子要是挂在大众博客程序上就太没意思了。一是觉得大部分 Blog 服务都太丑，二是觉得不能随便定制不好玩。之前因为太懒没有折腾，结果就一直连个写 Blog 的地儿都没有。
-
-在玩了一段时间知乎之后，答题的快感又激起了我开博客的冲动。之前的[个人网站](http://huangxuan.me/portfolio)是作品集形式的（现在集成进来了），并不适合用来写博文，一不做二不休，花一天搞一个吧！
-
-
-<p id = "build"></p>
-
+> “Tags”
 ## 正文
 
-接下来说说搭建这个博客的技术细节。  
-
-正好之前就有关注过 [GitHub Pages](https://pages.github.com/) + [Jekyll](http://jekyllrb.com/) 快速 Building Blog 的技术方案，非常轻松时尚。
-
-其优点非常明显：
-
-* **Markdown** 带来的优雅写作体验
-* 非常熟悉的 Git workflow ，**Git Commit 即 Blog Post**
-* 利用 GitHub Pages 的域名和免费无限空间，不用自己折腾主机
-	* 如果需要自定义域名，也只需要简单改改 DNS 加个 CNAME 就好了 
-* Jekyll 的自定制非常容易，基本就是个模版引擎
 
 
-本来觉得最大的缺点可能是 GitHub 在国内访问起来太慢，所以第二天一起床就到 GitCafe(Chinese GitHub Copy，现在被 Coding 收购了) 迁移了一个[镜像](http://huxpro.coding.me)出来，结果还是巨慢。
+```c++
+#include <Arduino.h>
+class Led{
 
-哥哥可是个前端好嘛！ 果断开 Chrome DevTool 查了下网络请求，原来是 **pending 在了 Google Fonts** 上，页面渲染一直被阻塞到请求超时为止，难怪这么慢。  
-忍痛割爱，只好把 Web Fonts 去了（反正超时看到的也只能是 fallback ），果然一下就正常了，而且 GitHub 和 GitCafe 对比并没有感受到明显的速度差异，虽然 github 的 ping 值明显要高一些，达到了 300ms，于是用 DNSPOD 优化了一下速度。
+    // 对象是对类的具象化（实例化）
 
-
----
-
-配置的过程中也没遇到什么坑，基本就是 Git 的流程，相当顺手
-
-大的 Jekyll 主题上直接 fork 了 Clean Blog（这个主题也相当有名，就不多赘述了。唯一的缺点大概就是没有标签支持，于是我给它补上了。）
-
-本地调试环境需要 `gem install jekyll`，结果 rubygem 的源居然被墙了……后来手动改成了我大淘宝的镜像源才成功
-
-Theme 的 CSS 是基于 Bootstrap 定制的，看得不爽的地方直接在 Less 里改就好了（平时更习惯 SCSS 些），**不过其实我一直觉得 Bootstrap 在移动端的体验做得相当一般，比我在淘宝参与的团队 CSS 框架差多了……**所以为了体验，也补了不少 CSS 进去
-
-最后就进入了耗时反而最长的**做图、写字**阶段，也算是进入了**写博客**的正轨，因为是类似 Hack Day 的方式去搭这个站的，所以折腾折腾着大半夜就过去了。
-
-第二天考虑中文字体的渲染，fork 了 [Type is Beautiful](http://www.typeisbeautiful.com/) 的 `font` CSS，调整了字号，适配了 Win 的渣渲染，中英文混排效果好多了。
+    public: // 公共的， 可以通过类的外部调用
+        Led();// 构造函数，不需要返回值标识符；// 建立LED对象的时候， LED构造函数就会执行
+        ~Led(); // 析构函数，在删除对象前，马上执行析构函数
+        // 构造函数和析构函数是不能有任何返回值的， 所以建立函数时， 也不需要返回值标识符；
+        // 一个类，不一定需要构造函数和析构函数
+        // 构造函数和析构函数虽然在Public关键字的下方，但是这两个函数都是不能在外部调用的，只能是实例化对象和销毁对象时调用；
 
 
-## 后记
+        Led(int userLedPin); // 这个也是构造函数， 实例化时传参会执行此构造函数
+        // 多个重名函数， 叫做函数重载，需要传参的数量不一样；
 
-回顾这个博客的诞生，纯粹是出于个人兴趣。在知乎相关问题上回答并获得一定的 star 后，我决定把这个博客主题当作一个小小的开源项目来维护。
 
-在经历 v1.0 - v1.5 的蜕变后，这个博客主题愈发完整，不但增加了诸多 UI 层的优化（opinionated）；在代码层面，更加丰富的配置项也使得这个主题拥有了更好的灵活性与可拓展性。而作为一个开源项目，我也积极的为其完善文档与解决 issue。
+        // 以下两个函数是类的成员函数， 可以通过类的外部调用
+        void on();
+        void off();
+        int pinNumber = 2; // 可以给一个初始值， 实例化时传参可以更改此变量，不传参程序也不会出错，pinNuber初始值就等于2
+        int getPrivatePinNumber();  // 给类的实例提供一个公共方法，让其可以访问到类的私有成员 privatePinNumber;
+        void setPrivatePinNumber(int userLedPin); // 给类的实例提供一个公共方法，让其可以修改类的私有成员 privatePinNumber;
+    private: //在private下边的成员函数或者变量，只能在类的内部调用
+        int privatePinNumber = 1; // 此处的成员属于类的私有成员，在类的外部无法访问，如果需要在外部访问，则可以建立一个公共方法来返回私有成员；
 
-如果你恰好逛到了这里，希望你也能喜欢这个博客主题。
+};
 
-—— Hux 后记于 2015.10
+Led::Led(){
+    Serial.println("Led Object Created .");
+
+    pinMode(pinNumber, OUTPUT);
+
+}
+
+Led::Led( int userLedPin ) : pinNumber(userLedPin){
+    Serial.println("Led Object Created . 传参");
+    // pinNumber = userLedPin;  // 此句赋值操作，和上边第二行的操作一样，
+
+    pinMode( pinNumber, OUTPUT);
+};
+
+Led::~Led(){
+    Serial.println("Led Object Deleted .");
+
+
+}
+void Led::on(){
+
+    digitalWrite(pinNumber, HIGH);
+
+};
+
+void Led::off(){
+    digitalWrite(pinNumber, LOW);
+};
+
+
+int Led::getPrivatePinNumber(){
+    return privatePinNumber;
+}
+
+void Led::setPrivatePinNumber(int userLedPin){
+    privatePinNumber = userLedPin;
+}
+
+void setup(){
+
+
+    Serial.begin(9600);
+    Led myLed; // 这一句代表，通过LED类来实例化一个myLed 对象，建立LED对象的时候， LED构造函数就会执行；
+    Led myLed2(7);
+
+    for(int i=0; i<3; i++){
+        myLed2.on();
+        delay(1000);
+        myLed2.off();
+        delay(1000);
+    }
+
+    int myLed2Pin = myLed2.pinNumber; // 在类的外部访问类的公共变量
+    Serial.println(myLed2Pin);
+
+    // myLed.on();
+
+    // delay(1000);
+
+    // myLed.off();
+
+    // delay(1000);
+
+    Serial.println("HELLO, This is from Setup() .");
+
+
+    Serial.print("通过一个公共方法在类的外部获取类的私有成员");
+    Serial.println(myLed2.getPrivatePinNumber()); //通过一个公共方法在类的外部获取类的私有成员
+
+};
+
+
+void loop(){
+
+};
+
+
+```
+

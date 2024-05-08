@@ -1,0 +1,36 @@
+---
+layout:     post
+title:      "Hello 2024"
+subtitle:   " \"Hello World, Hello GitheBlog\""
+date:       2024-05-08 00:00:00
+author:     "Githe"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags: 
+    - Meta
+    - C++学习笔记
+    - Arduino
+    - Serial
+---
+
+
+
+## 正文
+
+```c++
+#include <Arduino.h> // 引入Arduino库，才能在程序中使用Arduino提供的方法；
+
+void setup() { // 此函数只在Arduino启动时运行一次
+  Serial.begin(9600);  // 启动串口通讯，并指定波特率为9600
+}
+
+void loop() { // 此函数会在Setup函数执行后，一直重复运行
+  if (Serial.available()){                      // 当串口接收到信息后【有消息时返回消息的字节数，无消息时返回0】
+    Serial.println("Serial Data Available..."); // 通过串口监视器通知用户
+    String serialData = Serial.readString();    // 将接收到的信息使用readString()存储于serialData变量【存储为字符串】
+    Serial.print("Received Serial Data: ");     // 然后通过串口监视器输出serialData变量内容
+    Serial.println(serialData);                 // 以便查看serialData变量的信息
+  }
+}
+```
+

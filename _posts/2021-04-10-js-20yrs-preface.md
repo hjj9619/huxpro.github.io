@@ -1,13 +1,17 @@
 ---
-layout:       post
-title:        "《JavaScript 二十年》推荐语"
-author:       "Hux"
-header-style: text
-catalog:      true
-tags:
-    - Web
-    - JavaScript
+layout:     post
+title:      "Hello 2024"
+subtitle:   " \"Hello World, Hello GitheBlog\""
+date:       2024-05-08 00:00:00
+author:     "Githe"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags: 
+    - C++
+    - 面向对象
+    - Arduino
 ---
+
 
 > 雪碧（doodlewind）邀请我给[《JavaScript 二十年》](https://zhuanlan.zhihu.com/p/373065151) 写的推荐序。
 
