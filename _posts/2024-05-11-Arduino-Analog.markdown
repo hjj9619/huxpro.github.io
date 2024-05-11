@@ -26,7 +26,7 @@ tags:
 #include <Arduino.h> // 引入Arduino库，才能在程序中使用Arduino提供的方法；
 
 void loop(){
-    int val = analogRead(A5); //   模拟输入端口，会将0-5v的电压转换为0-1023的数值;
+    int val = analogRead(A0); //   模拟输入端口，会将0-5v的电压转换为0-1023的数值;
     Serial.println(val);  // 通过串口打印val的值;
     map(val, 0, 1023, 0, 255);  //   map 等比映射函数，将变量val数值从 0 － 1023 区间等比映射到 0 － 255区间;
     analogWrite(6, val);   // analogWrite, 会将0-255的值通过PWM波的形式输出;
