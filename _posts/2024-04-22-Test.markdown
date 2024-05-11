@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Hello 2024"
+title:      "C++ 面向对象编程"
 subtitle:   " \"Hello World, Hello GitheBlog\""
 date:       2024-05-08 00:00:00
 author:     "Githe"
@@ -12,10 +12,7 @@ tags:
     - Arduino
 ---
 
-> “Tags”
 ## 正文
-
-
 
 ```c++
 #include <Arduino.h>

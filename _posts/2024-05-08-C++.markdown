@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Hello 2024"
+title:      "Arduino 串口通讯"
 subtitle:   " \"Hello World, Hello GitheBlog\""
 date:       2024-05-08 00:00:00
 author:     "Githe"
