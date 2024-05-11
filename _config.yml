@@ -92,5 +92,5 @@ page-mathjax: false
 friends:
   [
     { title: "Hux-Blog", href: "https://huangxuan.me" },
-    { title: "太极创客", href: "https://taichi-maker.com/" }
+    { title: "太极创客", href: "http://www.taichi-maker.com/" }
   ]

@@ -2,7 +2,7 @@
 layout:     post
 title:      "Arduino 模拟输入输出"
 subtitle:   " \"Hello World, Hello GitheBlog\""
-date:       2024-05-10 00:00:00
+date:       2024-05-11 23:00:00
 author:     "Githe"
 header-img: "img/post-bg-2015.jpg"
 catalog: true
@@ -33,4 +33,7 @@ void loop(){
     delay(100);  // 使Arduino暂停100ms;
 }
 ```
-
+<p>
+此案例的电路图如下：
+</p>
+![analog示例电路](../img/posts_image/analog.png "利用电位器调节LED的亮度")
