@@ -36,4 +36,5 @@ void loop(){
 <p>
 此案例的电路图如下：
 </p>
-![analog示例电路](https://githe.xyz/img/404-bg.jpg "利用电位器调节LED的亮度")
+![analog示例电路](https://githe.xyz/img/posts_image/analog.png "利用电位器调节LED的亮度")
+![analog示例电路](./img/posts_image/analog.png "利用电位器调节LED的亮度")
